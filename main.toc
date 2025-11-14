@@ -1,0 +1,62 @@
+\contentsline {section}{Lời nói đầu}{3}{table.caption.2}%
+\contentsline {section}{\numberline {1}Danh sách thành viên \& Phân chia công việc}{3}{section.1}%
+\contentsline {section}{\numberline {2}Giới thiệu dự án}{4}{section.2}%
+\contentsline {section}{\numberline {3}Tổng quan công việc}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Giới thiệu về phương pháp luận}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Phương pháp tiếp cận}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Các kỹ thuật sử dụng}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Đánh giá và kiểm chứng}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Tính mới và đóng góp}{6}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Cơ sở lý thuyết}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Tổng quan về học máy và phân lớp dữ liệu}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Các thuật toán học máy}{7}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Hồi quy Logistic (Logistic Regression)}{7}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}K-Nearest Neighbors (KNN)}{7}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Cây quyết định (Decision Tree)}{7}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Rừng ngẫu nhiên (Random Forest)}{7}{subsubsection.4.2.4}%
+\contentsline {section}{\numberline {5}Preprocessing Data (Tiền xử lý dữ liệu)}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Giới thiệu chung về vai trò của tiền xử lý dữ liệu}{9}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Mục đích của tiền xử lý dữ liệu}{9}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Các vấn đề thường gặp trong dữ liệu thô}{9}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Ý nghĩa các trường dữ liệu}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Quá trình tiền xử lý dữ liệu}{9}{subsection.5.3}%
+\contentsline {section}{Quá trình tiền xử lý dữ liệu}{9}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Đọc và kiểm tra dữ liệu}{10}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Kỹ thuật biến đổi đặc trưng}{10}{subsubsection.5.3.2}%
+\contentsline {subsubsubsection}{\numberline {5.3.2.a}Xử lý cột phân loại (Categorical Data)}{10}{subsubsubsection.5.3.2.1}%
+\contentsline {subsubsubsection}{\numberline {5.3.2.b}Xử lý cột số (Numerical Data) - Chuẩn hóa}{10}{subsubsubsection.5.3.2.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Phân chia dữ liệu (Train-Test Split)}{10}{subsubsection.5.3.3}%
+\contentsline {section}{\numberline {6}Trực quan hóa Dữ liệu (EDA)}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Trực quan hóa phân phối dữ liệu}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Trực quan hóa mối quan hệ giữa các biến số}{12}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Ma trận tương quan (Correlation Heatmap)}{12}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Trực quan hóa so sánh giữa các nhóm}{13}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Xây dựng mô hình dự đoán}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Các đại lượng đánh giá mô hình}{15}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Ma trận nhầm lẫn (Confusion Matrix)}{15}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Accuracy (Độ chính xác)}{15}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Precision (Độ chuẩn xác)}{15}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Recall (Độ nhạy / Sensitivity)}{16}{subsubsection.7.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.5}F1-Score}{16}{subsubsection.7.1.5}%
+\contentsline {subsection}{\numberline {7.2}Mô hình Hồi quy Logistic (Logistic Regression)}{17}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Các chỉ số đánh giá hiệu suất mô hình}{17}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Trực quan hóa kết quả}{17}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.3}Mô hình K-Nearest Neighbors (KNN)}{17}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Thông số và hiệu suất mô hình KNN}{17}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Trực quan hóa kết quả mô hình KNN}{18}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.4}Mô hình Cây Quyết định (Decision Tree)}{18}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}Các chỉ số đánh giá hiệu suất mô hình}{18}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2}Phân tích độ quan trọng của đặc trưng (Feature Importances)}{19}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.3}Trực quan hóa kết quả và cấu trúc cây}{20}{subsubsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.5}Mô hình Rừng ngẫu nhiên (Random Forest)}{20}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {7.5.1}Các chỉ số đánh giá hiệu suất mô hình}{20}{subsubsection.7.5.1}%
+\contentsline {subsubsection}{\numberline {7.5.2}Phân tích độ quan trọng của đặc trưng (Feature Importances)}{20}{subsubsection.7.5.2}%
+\contentsline {subsubsection}{\numberline {7.5.3}Trực quan hóa kết quả}{21}{subsubsection.7.5.3}%
+\contentsline {section}{\numberline {8}So sánh và đánh giá hiệu suất các mô hình}{21}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Tổng hợp kết quả đánh giá hiệu suất}{22}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Phân tích chi tiết và thảo luận Kết quả}{22}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Hồi quy Logistic (Logistic Regression)}{22}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}K-Nearest Neighbors (KNN)}{22}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Cây Quyết định (Decision Tree)}{22}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Rừng ngẫu nhiên (Random Forest)}{23}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Thảo luận chung và Kết luận (Decision Making)}{23}{subsection.8.3}%

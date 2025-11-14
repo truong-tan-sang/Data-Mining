@@ -1,0 +1,50 @@
+\section{Trực quan hóa Dữ liệu (EDA)}
+
+Sau khi dữ liệu đã được làm sạch và tiền xử lý (Chương 4), phần này nhóm tập trung vào việc sử dụng các kỹ thuật trực quan hóa để khám phá sâu hơn về đặc điểm phân phối của dữ liệu, mối quan hệ giữa các biến, và sự khác biệt giữa các nhóm (bệnh và không bệnh). Mục tiêu là thu được những hiểu biết trực quan, làm nền tảng cho các phân tích và mô hình hóa ở các phần sau.
+
+\subsection{Trực quan hóa phân phối dữ liệu}
+Biểu đồ tần suất (histogram) và biểu đồ mật độ (density plot) được sử dụng để kiểm tra hình dạng phân phối của các biến số liên tục quan trọng. Biểu đồ đếm (countplot) được dùng để kiểm tra sự phân bổ của biến mục tiêu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/hinh-phanphoi-mucchieu.png}
+    \caption{Phân phối của biến mục tiêu (HeartDisease). Biểu đồ cho thấy dữ liệu có 1 (Bệnh tim) và 0 (Bình thường). Nhận xét: Dữ liệu tương đối cân bằng, không bị chênh lệch (imbalanced) nghiêm trọng.}
+    \label{fig:target-dist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/hinh-phanphoi-so.png}
+    \caption{Biểu đồ phân phối của các biến số liên tục chính: Tuổi (Age), Huyết áp (RestingBP), Cholesterol, và Nhịp tim tối đa (MaxHR). Nhận xét: Hầu hết các biến có phân phối gần giống phân phối chuẩn.}
+    \label{fig:numeric-dist}
+\end{figure}
+
+\subsection{Trực quan hóa mối quan hệ giữa các biến số}
+Để khám phá mối liên hệ giữa các biến, nhóm sử dụng ma trận tương quan (correlation heatmap) để có cái nhìn tổng quan về các mối quan hệ tuyến tính.
+
+\subsubsection{Ma trận tương quan (Correlation Heatmap)}
+Ma trận tương quan cung cấp một cái nhìn tổng thể về cường độ và chiều hướng của mối quan hệ tuyến tính giữa các cặp biến số (chỉ áp dụng cho các biến số, không bao gồm các biến đã One-Hot Encoding). Giá trị gần +1 cho thấy mối quan hệ đồng biến mạnh, gần -1 cho thấy mối quan hệ nghịch biến mạnh, và gần 0 cho thấy ít có quan hệ tuyến tính.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/hinh-heatmap.png}
+    \caption{Heatmap ma trận tương quan Pearson giữa các biến số chính. Nhận xét: Có thể thấy \texttt{MaxHR} (Nhịp tim tối đa) có tương quan âm nhẹ với \texttt{Age} (Tuổi). \texttt{Oldpeak} có tương quan dương với \texttt{Age}.}
+    \label{fig:heatmap}
+\end{figure}
+
+\subsection{Trực quan hóa so sánh giữa các nhóm}
+Đây là phần phân tích quan trọng nhất cho bài toán phân loại. Nhóm sử dụng biểu đồ hộp (box plot) để so sánh phân bố của biến số và biểu đồ đếm (count plot) để so sánh tần suất của biến phân loại giữa hai nhóm: \texttt{HeartDisease = 0} (Bình thường) và \texttt{HeartDisease = 1} (Bệnh tim).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/hinh-boxplot-nhom.png}
+    \caption{So sánh phân bố của các biến số (Age, RestingBP, Cholesterol, MaxHR) giữa hai nhóm Bệnh (1) và Bình thường (0). Nhận xét: Có sự khác biệt rõ rệt ở \texttt{MaxHR} (người bệnh có nhịp tim tối đa trung bình thấp hơn) và \texttt{Age} (người bệnh có độ tuổi trung bình cao hơn).}
+    \label{fig:boxplot-group}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/hinh-countplot-nhom.png}
+    \caption{So sánh tần suất của các biến phân loại (Sex, ChestPainType, ST\_Slope) giữa hai nhóm Bệnh (1) và Bình thường (0). Nhận xét: Tỷ lệ mắc bệnh ở Nam (\texttt{Sex=M}) cao hơn Nữ (\texttt{Sex=F}). Đặc biệt, \texttt{ST\_Slope} (Độ dốc ST) là một yếu tố phân biệt rất mạnh: nhóm \texttt{Up} (dốc lên) đa số là bình thường, trong khi nhóm \texttt{Flat} (phẳng) có tỷ lệ mắc bệnh rất cao.}
+    \label{fig:countplot-group}
+\end{figure}

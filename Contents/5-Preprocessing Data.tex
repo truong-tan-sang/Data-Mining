@@ -1,0 +1,73 @@
+\section{Preprocessing Data (Tiền xử lý dữ liệu)}
+
+\subsection{Giới thiệu chung về vai trò của tiền xử lý dữ liệu}
+Trong bất kỳ dự án khai thác dữ liệu nào, tiền xử lý dữ liệu đóng vai trò quan trọng vì dữ liệu thô (raw data) thường không đầy đủ, không chính xác, hoặc không nhất quán. Quá trình tiền xử lý giúp cải thiện chất lượng dữ liệu trước khi áp dụng các mô hình học máy, từ đó giúp tăng độ chính xác của các dự đoán hoặc phân tích.
+
+\subsubsection{Mục đích của tiền xử lý dữ liệu}
+Mục đích chính của tiền xử lý dữ liệu là làm sạch và chuẩn hóa dữ liệu, giảm thiểu nhiễu và những giá trị không hợp lệ, từ đó nâng cao chất lượng của dữ liệu. Việc này cải thiện hiệu quả của các mô hình học máy và khai thác dữ liệu, giúp các thuật toán có thể học và dự đoán chính xác hơn.
+
+\subsubsection{Các vấn đề thường gặp trong dữ liệu thô}
+\begin{itemize}
+    \item \textbf{Thiếu giá trị (Missing values):} Nhiều thuộc tính hoặc cột trong dữ liệu có thể thiếu thông tin.
+    \item \textbf{Nhiễu (Noisy data):} Các giá trị không hợp lý hoặc ngoại lệ (outliers) có thể xuất hiện trong dữ liệu.
+    \item \textbf{Không nhất quán (Inconsistent data):} Dữ liệu có thể được ghi nhận theo các cách khác nhau (ví dụ: "Male" và "M").
+    \item \textbf{Trùng lặp (Duplicate data):} Nhiều hàng (records) giống hệt nhau có thể làm sai lệch kết quả phân tích.
+\end{itemize}
+
+\subsection{Ý nghĩa các trường dữ liệu}
+Bộ dữ liệu được sử dụng là "Heart Failure Prediction Dataset", một bộ dữ liệu tổng hợp từ 5 bộ dữ liệu khác nhau của UCI (Cleveland, Hungarian, Switzerland, Long Beach VA, Stalog). Bộ dữ liệu cuối cùng gồm 918 mẫu quan sát và 12 cột.
+
+\begin{itemize}
+    \item \textbf{Age:} Tuổi của bệnh nhân (Năm).
+    \item \textbf{Sex:} Giới tính (M: Male, F: Female).
+    \item \textbf{ChestPainType:} Loại đau ngực (TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic).
+    \item \textbf{RestingBP:} Huyết áp khi nghỉ (mm Hg).
+    \item \textbf{Cholesterol:} Nồng độ Cholesterol (mm/dl).
+    \item \textbf{FastingBS:} Đường huyết lúc đói (1: nếu > 120 mg/dl, 0: ngược lại).
+    \item \textbf{RestingECG:} Kết quả điện tâm đồ khi nghỉ (Normal: Bình thường, ST: Có bất thường sóng ST-T, LVH: Phì đại tâm thất trái).
+    \item \textbf{MaxHR:} Nhịp tim tối đa đạt được (60-202).
+    \item \textbf{ExerciseAngina:} Có đau thắt ngực khi vận động hay không (Y: Yes, N: No).
+    \item \textbf{Oldpeak:} Chỉ số ST depression.
+    \item \textbf{ST\_Slope:} Độ dốc của đoạn ST khi tập thể dục (Up: Dốc lên, Flat: Phẳng, Down: Dốc xuống).
+    \item \textbf{HeartDisease (Biến mục tiêu):} 1 = Bệnh tim, 0 = Bình thường.
+\end{itemize}
+
+\subsection{Quá trình tiền xử lý dữ liệu}
+\addcontentsline{toc}{section}{Quá trình tiền xử lý dữ liệu}
+Quá trình tiền xử lý được thực hiện theo các bước chuẩn trong pipeline của mô hình học máy.
+
+\subsubsection{Đọc và kiểm tra dữ liệu}
+Quá trình bắt đầu bằng việc đọc dữ liệu từ file \texttt{heart.csv}. Kết quả kiểm tra ban đầu cho thấy:
+\begin{itemize}
+    \item Kích thước dữ liệu: 918 dòng và 12 cột.
+    \item Giá trị thiếu: Một số giá trị \texttt{Cholesterol} được ghi nhận là 0, đây có thể xem là giá trị thiếu hoặc bất thường. Tuy nhiên, trong khuôn khổ bài tập này, nhóm quyết định giữ nguyên các giá trị này.
+    \item Dữ liệu trùng lặp: Phát hiện thấy một số hàng trùng lặp, nhóm đã tiến hành loại bỏ các hàng này bằng \texttt{data.drop\_duplicates()} để đảm bảo tính duy nhất của dữ liệu.
+\end{itemize}
+
+\subsubsection{Kỹ thuật biến đổi đặc trưng}
+Hệ thống thực hiện các biến đổi đặc trưng để chuẩn bị dữ liệu cho việc phân tích:
+
+\subsubsubsection{Xử lý cột phân loại (Categorical Data)}
+Các mô hình học máy yêu cầu đầu vào là số. Do đó, các cột dữ liệu dạng chữ (categorical) được chuyển đổi bằng kỹ thuật \textbf{One-Hot Encoding} (sử dụng \texttt{pandas.get\_dummies}).
+\begin{itemize}
+    \item Các cột được mã hóa: \texttt{Sex}, \texttt{ChestPainType}, \texttt{FastingBS}, \texttt{RestingECG}, \texttt{ExerciseAngina}, \texttt{ST\_Slope}.
+    \item Tham số \texttt{drop\_first=True} được sử dụng để tránh hiện tượng đa cộng tuyến (multicollinearity) cho các mô hình tuyến tính (như Logistic Regression).
+\end{itemize}
+
+\subsubsubsection{Xử lý cột số (Numerical Data) - Chuẩn hóa}
+Một số thuật toán như \textbf{Logistic Regression} và \textbf{KNN} rất nhạy cảm với thang đo (scale) của các đặc trưng. Các đặc trưng có giá trị lớn (như \texttt{Cholesterol}) có thể lấn át các đặc trưng có giá trị nhỏ (như \texttt{Oldpeak}).
+\begin{itemize}
+    \item \textbf{Hành động:} Sử dụng \texttt{StandardScaler} (Chuẩn hóa Z-score) để biến đổi các cột số.
+    \item Các cột được chuẩn hóa: \texttt{Age}, \texttt{RestingBP}, \texttt{Cholesterol}, \texttt{MaxHR}, \texttt{Oldpeak}.
+    \item \textbf{Lưu ý quan trọng:} Các mô hình dựa trên cây (Decision Tree, Random Forest) không yêu cầu bước chuẩn hóa này. Do đó, nhóm chuẩn bị 2 bộ dữ liệu: một bộ đã chuẩn hóa (cho LR, KNN) và một bộ chưa chuẩn hóa (cho DT, RF).
+\end{itemize}
+
+\subsubsection{Phân chia dữ liệu (Train-Test Split)}
+Để đánh giá mô hình một cách khách quan, dữ liệu được chia thành 2 tập:
+\begin{itemize}
+    \item \textbf{Tập huấn luyện (Training Set):} 80\% dữ liệu, dùng để train cho mô hình.
+    \item \textbf{Tập kiểm thử (Test Set):} 20\% dữ liệu, dùng để đánh giá hiệu suất cuối cùng của mô hình.
+\end{itemize}
+Quá trình này được thực hiện \textbf{trước} khi chuẩn hóa (Scaling) để tránh rò rỉ dữ liệu (data leakage) từ tập test sang tập train.
+
+\newpage

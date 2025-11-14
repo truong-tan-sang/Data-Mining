@@ -1,0 +1,267 @@
+\documentclass[a4paper]{article}
+\usepackage{listings}
+    \usepackage{xcolor}
+    
+    \definecolor{codegreen}{rgb}{0,0.6,0}
+    \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+    \definecolor{codepurple}{rgb}{0.58,0,0.82}
+    \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+    
+    \lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolour},   
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{magenta},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\ttfamily\footnotesize,
+        breakatwhitespace=false,         
+        breaklines=true,                 
+        captionpos=b,                    
+        keepspaces=true,                 
+        numbers=left,                    
+        numbersep=5pt,                  
+        showspaces=false,                
+        showstringspaces=false,
+        showtabs=false,                  
+        tabsize=2
+    }
+\lstset{style=mystyle}
+
+\lstdefinelanguage{SML}{
+  morekeywords={datatype,fun,in,end,if,then,else,case,of},
+  sensitive=true,
+  morecomment=[s]{(*}{*)},
+  morestring=[b]",
+  literate=
+    {->}{$\rightarrow$}{1}
+    {=>}{$\Rightarrow$}{1}
+}
+
+\usepackage{vntex}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{makecell}
+
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+\usepackage[normalem]{ulem}
+%\usepackage{soul}
+
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{enumitem}
+% \usepackage{biblatex}
+% \addbibresource{ref.bib}
+
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+\usepackage{longtable}
+\usepackage[normalem]{ulem}
+\everymath{\color{black}}
+\newtheorem{theorem}{{\bf Định lý}}
+\newtheorem{property}{{\bf Tính chất}}
+\newtheorem{proposition}{{\bf Mệnh đề}}
+\newtheorem{corollary}[proposition]{{\bf Hệ quả}}
+\newtheorem{lemma}[proposition]{{\bf Bổ đề}}
+\theoremstyle{definition}
+\newtheorem{exer}{Bài toán}
+
+\def\thesislayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+		total={160mm,240mm},  % fix over page
+		left=30mm,
+		top=30mm,
+	}
+}
+
+
+\thesislayout
+
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{images/hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại học Bách khoa Tp.Hồ Chí Minh}\\
+		\textbf{\bf \ttfamily Khoa Khoa học \& Kỹ thuật Máy tính}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn môn Kiểm tra Phần mềm - Học kỳ 251}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=10pt}
+%space remove between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+%space remove between caption, table, and text
+
+%\floatplacement{figure}{H}%forced here float placement automatically for figures
+%\floatplacement{table}{H}%forced here float placement automatically for table
+%the following settings (11 lines) are to remove white space before or after the figures and tables
+%\setcounter{topnumber}{2}
+%\setcounter{bottomnumber}{2}
+%\setcounter{totalnumber}{4}
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\bottomfraction}{0.85}
+%\renewcommand{\textfraction}{0.15}
+%\renewcommand{\floatpagefraction}{0.8}
+%\renewcommand{\textfraction}{0.1}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5cm}
+\thesislayout
+\usepackage{titlesec}
+\usepackage{titleps}
+% \titleformat{\section}[hang]
+% {\normalfont\Large\bfseries}{Task \thesection}{1em}{}
+% \renewcommand\thesection{\arabic{section}}
+% \titleformat{\subsection}[hang]
+% {\normalfont\bfseries}{Task \thesubsection}{1em}{}
+% \titleformat{\subsubsection}[hang]
+% {\normalfont\bfseries}{Task \thesubsubsection}{1em}{}
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA \\
+KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH 
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{images/hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{center}
+    \textbf{{\Large DATA MINING (CO3029)}}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c}
+	\multicolumn{1}{l}{}\\
+	~~\\
+	\hline
+    \\
+	\textbf{{\Large Bài tập lớn - Học kì 242}}\\
+    \\
+	\textbf{{\Huge DỰ ĐOÁN NGUY CƠ BỆNH TIM}}\\
+	\\
+	\hline
+\end{tabular}
+\end{center}
+
+\vspace{2cm}
+
+\begin{table}[h]
+\begin{tabular}{rll}
+\hspace{4 cm} GVHD: &Thầy Huỳnh Văn Thống &\\
+SVTH:
+& Trương Tấn Sang & 2212918\\
+
+\end{tabular}
+\end{table}
+
+\vspace{3cm}
+
+\begin{center}
+{\footnotesize TP. HỒ CHÍ MINH, 2025}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+
+\newpage 
+
+
+\newpage
+\input{Contents/0-foreword}
+\input{Contents/1-memberlist}
+\input{Contents/2-introduction}
+\input{Contents/3-workload}
+\input{Contents/4-tools}
+\input{Contents/5-Preprocessing Data}
+\input{Contents/6-conclusion}
+\input{Contents/7-Build Model}
+\input{Contents/8-Comparison}
+\newpage
+% \bibliographystyle{plain}
+% \bibliography{ref}
+
+\end{document}
+
+    
