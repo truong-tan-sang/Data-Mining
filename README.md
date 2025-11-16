@@ -103,7 +103,7 @@ print(sys.executable)
 Trước tiên, bạn cần cài đặt LaTeX distribution:
 
 **Windows:**
-- Tải và cài đặt [MiKTeX](https://miktex.org/download) hoặc [TeX Live](https://tug.org/texlive/)
+- Tải và cài đặt [MiKTeX](https://miktex.org/download)
 - Đảm bảo `pdflatex` và `bibtex` có trong PATH
 
 **Linux:**
@@ -208,56 +208,3 @@ Mở file `settings.json` của VS Code (Ctrl+Shift+P → `Preferences: Open Use
 - **pdfLaTeX**: Compile đơn giản, phù hợp cho tài liệu không có tài liệu tham khảo
 - **pdfLaTeX x2**: Compile 2 lần để cập nhật references và cross-references
 - **pdfLaTeX → BibTeX → pdfLaTeX x2**: Compile đầy đủ với bibliography (cho file có `\bibliography{}`)
-
----
-
-## 🛠️ Phần 4: Khắc phục Sự cố
-
-### 4.1. Python Virtual Environment không kích hoạt được
-
-**Lỗi PowerShell Execution Policy:**
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-### 4.2. Jupyter không tìm thấy Kernel
-
-```powershell
-python -m ipykernel install --user --name=venv --display-name "Python (venv)"
-jupyter kernelspec list
-```
-
-### 4.3. LaTeX không compile được
-
-- Kiểm tra `pdflatex` có trong PATH:
-  ```powershell
-  pdflatex --version
-  ```
-- Xem LaTeX Workshop Output trong VS Code (View → Output → chọn "LaTeX Workshop")
-- Đảm bảo các package LaTeX cần thiết đã được cài đặt
-
----
-
-## 📚 Tài nguyên tham khảo
-
-- [Python Virtual Environments](https://docs.python.org/3/tutorial/venv.html)
-- [Jupyter Documentation](https://jupyter.org/documentation)
-- [LaTeX Workshop Wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki)
-- [MiKTeX Documentation](https://miktex.org/howto)
-
----
-
-## ✅ Checklist
-
-- [ ] Đã tạo và kích hoạt virtual environment
-- [ ] Đã cài đặt thư viện từ `requirement.txt`
-- [ ] Đã thêm kernel vào Jupyter
-- [ ] Đã cài đặt LaTeX distribution (MiKTeX/TeX Live)
-- [ ] Đã cài extension LaTeX Workshop trong VS Code
-- [ ] Đã cấu hình `settings.json` cho LaTeX
-- [ ] Đã test compile file LaTeX thành công
-
----
-
-**Tác giả:** BTL Data Mining Team  
-**Ngày cập nhật:** November 14, 2025
